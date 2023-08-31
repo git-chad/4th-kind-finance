@@ -58,7 +58,7 @@ const MenuToggle = () => {
           <a href="#">Investments</a>
         </div>
 
-        <div className="external-links flex flex-col justify-center text-2xl space-y-3">
+        <div className="external-links flex flex-col justify-center text-2xl space-y-3 mb-16">
           <a href="#">Instagram</a>
           <a href="#">Crunchbase</a>
           <a href="#">Twitter</a>
