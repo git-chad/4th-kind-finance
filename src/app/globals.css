@@ -3,25 +3,123 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --bg-color: #f9f9f1;
+  --text-color: #271f30;
+  --highlight-color: #a64e98;
+  --secondary-highlight-color: #8b417e;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+body.dark-mode {
+  --bg-color: #271f30;
+  --text-color: #f9f9f1;
+  --highlight-color: #0b6e4f;
+  --secondary-highlight-color: #0d825d;
+}
+
+.grid-bg {
+  background-image: url("/grid.svg");
+  background-position: center;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+a {
+  color: var(--text-color);
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--highlight-color);
+}
+
+.menu-toggle {
+}
+
+a.menu-toggle rect {
+  fill: currentColor;
+}
+
+nav {
+  background-color: var(--bg-color);
+  transform: translate(100%, 0);
+  transition: transform 0.5s 0s;
+}
+
+nav.fake-mid {
+  background-color: var(--secondary-highlight-color);
+  transition-delay: 0.1s;
+}
+
+nav.fake-back {
+  background-color: var(--highlight-color);
+  transition-delay: 0.2s;
+}
+
+body.nav-toggle nav {
+  transform: translate(0, 0);
+  transition-delay: 0.2s;
+}
+
+body.nav-toggle nav.fake-mid {
+  transition-delay: 0.1s;
+}
+
+body.nav-toggle nav.fake-back {
+  transition-delay: 0s;
+}
+
+h1 rect {
+  fill: var(--highlight-color);
+}
+
+.darkmode-btn circle {
+  fill: currentColor;
+}
+
+.darkmode-btn rect {
+  stroke: currentColor;
+}
+
+.darkmode-btn g.toggle-circle circle {
+  transition: transform 0.3s;
+}
+
+.darkmode-btn:hover g.toggle-circle circle {
+  transform: scale(1.5);
+}
+
+.wiper-screen {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100vw;
+  height: 0vh;
+  background-color: var(--highlight-color);
+  transition: background-color 0.001s 2s;
+}
+
+svg.spiral {
+  border: 2px solid var(--highlight-color);
+}
+
+svg.spiral rect {
+  stroke: var(--highlight-color);
+  fill: var(--highlight-color);
+  fill-opacity: 0.03;
+}
+
+svg.spiral rect:hover {
+  fill-opacity: 0.23;
+  transition: fill-opacity 0.5s;
+}
+
+.shift-section {
+  transition: transform 0.5s 0.1s;
+}
+
+body.nav-toggle section {
+  transform: translate(-576px, 0);
 }
