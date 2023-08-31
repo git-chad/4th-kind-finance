@@ -34,7 +34,7 @@ export default function Home() {
         <MenuToggle />
       </div>
 
-      <div className="flex scale-[88%]">
+      <div className="flex scale-[88%] sm:scale-100">
         <SquareSpiral/>
       </div>
     </main>
