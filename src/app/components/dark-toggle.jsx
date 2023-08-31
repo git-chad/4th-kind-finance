@@ -28,7 +28,7 @@ const DarkToggle = () => {
 
     // changes the span mode indicator if its clicked
     darkModeToggle.addEventListener("click", function () {
-      if (bodyTag.classList.contains("dark-mode")) {
+      if (!bodyTag.classList.contains("dark-mode")) {
         darkModeToggleText.innerHTML = "Light mode";
 
         gsap.to("g.toggle-circle", { x: 43 });
